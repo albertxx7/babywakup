@@ -44,10 +44,11 @@ function render(todo) {
       </label>
       <a href="#" class="delete"></a>
     </li>`;
-    let todolength = todoData.filter((item) => !item.complete);
-    workNum.textContent = todolength.length;
   });
   todoList.innerHTML = str;
+  //   待辦數字 放外層 這樣才會歸0 放裡面會永遠剩下1
+  let todolength = todoData.filter((item) => !item.complete);
+  workNum.textContent = todolength.length;
 }
 
 // 刪除單筆//切換打勾狀態
