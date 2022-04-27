@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/all.css">
+</head>
+
+<body>
+
+
+
+    <div class="container">
+
+
+        <h1>TODO LIST</h1>
+        <iframe src="https://free.timeanddate.com/clock/i8ax5t1k/n241/tltw8/fn7/fs20/tct/pct/ftb/th2" frameborder="0"
+            width="128" height="30" allowtransparency="true" class="time"></iframe>
+        <div class="card input">
+            <input type="text" placeholder="請輸入待辦事項" id="inputVal" />
+            <a href="#" class="btn_add" id="addTodoBtn">+</a>
+        </div>
+        <div class="card card_list">
+            <ul class="tab" id="tab">
+                <li class="active" data-tab="all">全部</li>
+                <li data-tab="work">待完成</li>
+                <li data-tab="done">已完成</li>
+            </ul>
+            <div class="cart_content">
+                <ul class="list" id="todoList">
+                </ul>
+                <div class="list_footer">
+                    <p class="slogen"><span id="workNum"></span> 個待完成項目，加油喔</p>
+                    <a href="#" id="deleteBTN">清除已完成項目</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/all.js"></script>
+</body>
+
+</html>
+
+<!-- <li>
+    <label class="checkbox" for="">
+        <input type="checkbox" />
+
+    </label>
+    <a href="#" class="delete"></a>
+</li> -->
+
+
+
+
+<!-- // const text = document.querySelector(".word");
+// const btn_add = document.querySelector(".btn_add");
+// const scrollTab = document.querySelector("#tab");
+// const action = document.querySelector(".active");
+// const wait = document.querySelector(".todo");
+// const over = document.querySelector(".done");
+// const list = document.querySelector(".list");
+
+// // 總資料庫 設定格式
+// let data = [
+//   {
+//     content: "吃漢堡",
+//   },
+// ];
+// //
+// function renderData() {
+//   let str = "";
+//   data.forEach(function (item) {
+//     str += `
+//     <li>
+//       <label class="checkbox" for="">
+//         <input type="checkbox" />
+//         <span>${item.content}</span>
+//       </label>
+//       <a href="#" class="delete"></a>
+//     </li>`;
+//   });
+//   list.innerHTML = str;
+// }
+// renderData();
+// // 初始化網頁
+
+// btn_add.addEventListener("click", moveOn);
+// function moveOn(e) {
+//   if (text.value.trim() == "") {
+//     alert("記得輸入事項啊");
+//     return;
+//   }
+//   if (text.value.trim() !== "") {
+//     let obj = {};
+//     obj.content = text.value;
+//     data.push(obj);
+//     text.value = "";
+//     renderData();
+//     //  把值插進去
+//   }
+// } -->
