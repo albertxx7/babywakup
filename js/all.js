@@ -34,27 +34,28 @@ function addTodo() {
 }
 
 // 渲染
-function render(todo) {
+function render(todoData) {
   let str = "";
-  todo.forEach((item) => {
+  todoData.forEach((item) => {
     str += `<li data-id="${item.id}">
-      <label class="checkbox" for="">
-        <input type="checkbox" ${item.complete ? "checked" : ""}/>
-        <span>${item.text}</span>
-      </label>
-      <a href="#" class="delete"></a>
-    </li>`;
+        <label class="checkbox" for="">
+          <input type="checkbox" ${item.complete ? "checked" : ""}/>
+          <span>${item.text}</span>
+        </label>
+        <a href="#" class="delete"></a>
+      </li>`;
   });
+
   todoList.innerHTML = str;
-  //   待辦數字 放外層 這樣才會歸0 放裡面會永遠剩下1
   let todolength = todoData.filter((item) => !item.complete);
   workNum.textContent = todolength.length;
+  //   待辦數字 放外層 這樣才會歸0 放裡面會永遠剩下1 = =
 }
 
 // 刪除單筆//切換打勾狀態
 todoList.addEventListener("click", (e) => {
   let id = parseInt(e.target.closest("li").dataset.id);
-
+  // data-id= ${item.id} 來自getTime
   // 找到li，取出id
   if (e.target.getAttribute("class") === "delete") {
     e.preventDefault;
@@ -69,6 +70,7 @@ todoList.addEventListener("click", (e) => {
   }
   render(todoData);
 });
+
 // 切換狀態
 tab.addEventListener("click", changeTab);
 // 監聽ul #tab
