@@ -15,6 +15,7 @@ let todoData = [];
 let situation = "all";
 // 不同葉面資料
 let dataShow = [];
+
 //
 btn_add.addEventListener("click", addTodo);
 function addTodo() {
@@ -30,7 +31,8 @@ function addTodo() {
   } else {
     alert("要輸入事情喔");
   }
-  render(todoData);
+
+  updateList(dataShow);
 }
 
 // 渲染
@@ -47,7 +49,7 @@ function render(todoData) {
   });
 
   todoList.innerHTML = str;
-  updateList();
+
   //  把  updateList(); 放在渲染的函式這裡
 }
 
@@ -67,7 +69,7 @@ todoList.addEventListener("click", (e) => {
       }
     });
   }
-  render(todoData);
+  updateList(dataShow);
 });
 
 // 切換狀態
@@ -89,7 +91,7 @@ function changeTab(e) {
 }
 
 // 篩選
-function updateList(e) {
+function updateList() {
   if (situation === "all") {
     dataShow = todoData;
   } else if (situation === "work") {
@@ -97,11 +99,12 @@ function updateList(e) {
   } else {
     dataShow = todoData.filter((item) => item.complete == true);
   }
-  let todolength = todoData.filter((item) => !item.complete);
+  let longer = todoData.filter((item) => !item.complete);
+  let todolength = longer;
   workNum.textContent = todolength.length;
-
   render(dataShow);
 }
+updateList();
 
 deleteButton.addEventListener("click", function (e) {
   e.preventDefault();
@@ -110,9 +113,3 @@ deleteButton.addEventListener("click", function (e) {
 
   updateList();
 });
-
-// deleteButton.addEventListener("click", function (e) {
-//   e.preventDefault();
-//   todoData = todoData.filter((item) => item.complete == false);
-//   updateList();
-// });
