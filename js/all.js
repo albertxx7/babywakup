@@ -39,7 +39,7 @@ function render(todoData) {
   todoData.forEach((item) => {
     str += `<li data-id="${item.id}">
         <label class="checkbox" for="">
-          <input type="checkbox" ${item.complete ? "checked" : ""}/>
+          <input type="checkbox" ${item.complete ? "checked" : ""}  />
           <span>${item.text}</span>
         </label>
         <a href="#" class="delete"></a>
@@ -47,9 +47,8 @@ function render(todoData) {
   });
 
   todoList.innerHTML = str;
-  let todolength = todoData.filter((item) => !item.complete);
-  workNum.textContent = todolength.length;
-  //   待辦數字 放外層 這樣才會歸0 放裡面會永遠剩下1 = =
+  updateList();
+  //  把  updateList(); 放在渲染的函式這裡
 }
 
 // 刪除單筆//切換打勾狀態
@@ -98,10 +97,11 @@ function updateList(e) {
   } else {
     dataShow = todoData.filter((item) => item.complete == true);
   }
+  let todolength = todoData.filter((item) => !item.complete);
+  workNum.textContent = todolength.length;
 
   render(dataShow);
 }
-updateList();
 
 deleteButton.addEventListener("click", function (e) {
   e.preventDefault();
