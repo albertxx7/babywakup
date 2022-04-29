@@ -49,8 +49,6 @@ function render(todoData) {
   });
 
   todoList.innerHTML = str;
-
-  //  把  updateList(); 放在渲染的函式這裡
 }
 
 // 刪除單筆//切換打勾狀態
