@@ -1,13 +1,8 @@
 const btn_add = document.querySelector("#addTodoBtn");
-
 const inputVal = document.querySelector("#inputVal");
-
 const todoList = document.querySelector("#todoList");
-
 const tab = document.querySelector("#tab");
-
 const workNum = document.querySelector("#workNum");
-
 const deleteButton = document.querySelector("#deleteBTN");
 
 let todoData = [];
@@ -32,7 +27,7 @@ function addTodo() {
     alert("要輸入事情喔");
   }
 
-  updateList(dataShow);
+  updateList();
 }
 
 // 渲染
@@ -67,7 +62,7 @@ todoList.addEventListener("click", (e) => {
       }
     });
   }
-  updateList(dataShow);
+  updateList();
 });
 
 // 切換狀態
@@ -75,7 +70,7 @@ tab.addEventListener("click", changeTab);
 // 監聽ul #tab
 function changeTab(e) {
   situation = e.target.dataset.tab;
-  // 這裡還沒用到↑
+  // 這裡還沒用到↑ update才用到
   let tabs = document.querySelectorAll("#tab li");
 
   //   item=li，item視為forEach裡的參數，上面宣告選擇#tab裡面全部li
@@ -108,6 +103,5 @@ deleteButton.addEventListener("click", function (e) {
   e.preventDefault();
 
   todoData = todoData.filter((item) => item.complete == false);
-
   updateList();
 });
